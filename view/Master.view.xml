@@ -1,0 +1,62 @@
+<core:View controllerName="sap.ui.demo.myFiori.view.Master"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:custom="sap.ui.demo.myFiori.util">
+	<Page title="Master List" showHeader="true">
+		<subHeader>
+			<Bar class="TitleBar" width="100%">
+				<contentLeft>
+					<SearchField search="handleSearch" >
+					</SearchField>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+
+		<List id="list" class="MasterList" items="{/NominationCollection}" updateFinished="afterBinding">
+			<custom:ExtendedDisplayListItem class="MainListItem">
+				<Panel class="NomContainer" width="100%"><VBox class="NomContainerBox"><items>
+				    <Text class="MainListItemStatus" text="{NomStatus}" />
+					<List class="MainListItemContainer">
+						<DisplayListItem label="{NomKey}" 
+										 value="{VehicleName}"
+										 class="MainListItem" type="Active" press="handleListItemPress"
+							width="100%" height="100%"/>
+					</List>
+					<l:VerticalLayout class="hidden ExpandItemList">
+						<Table class="ItemTable" width="90%" items="{NomItemCollection}">
+							<columns>
+								<Column width="10%">
+								</Column>
+								<Column>
+								</Column>
+								<Column>
+								</Column>
+								<Column>
+								</Column>
+								<Column>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active" class="NomItem" press="handleItemPress" >
+									<cells>
+									    <Text class="ItemIndex EventItemBox1" text="N/A" />
+										<Text class="Key" text="{MaterialNo}" />
+										<Text text="{MaterialDesc}" />
+										<Text text="{Quality} {Unit}" />
+										<Text text="{ path : 'ItemEventList', 
+										              formatter : 'sap.ui.demo.myFiori.util.Formatter.masterItemListClassFormatter' }" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						<FlexBox alignItems="End" justifyContent="End" width="95%">
+							<items>
+								<Button text="Select All" class="SelectAllButton" aligh="Right" press="handleSelectAll" />
+								<Button text="Capture" class="CaptureButton" enabled="false" aligh="Right" press="handleCapturePress" />
+							</items>
+						</FlexBox>
+					</l:VerticalLayout>
+				</items></VBox></Panel>
+			</custom:ExtendedDisplayListItem>
+		</List>
+	</Page>
+</core:View>

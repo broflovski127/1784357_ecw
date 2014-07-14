@@ -1,0 +1,658 @@
+{
+	"NominationCollection" : [
+		{
+		"NomKey" : "00000001",
+		"VehicleNo" : "1", 
+ 		"VehicleName" : "Vessel 001",
+		"NomStatus" : "None", 
+		"NomItemCollection" : [
+			{
+				"NomKeyItem" : "1", 
+				"MaterialNo" : "00000001",
+				"MaterialDesc" : "Material 001",
+				"Quality" : "100",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 1 01"
+					}, 
+					{
+					"EventID" : "2", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 1 02"
+					}, 
+					{
+					"EventID" : "3", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 1 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "2", 
+				"MaterialNo" : "00000002",
+				"MaterialDesc" : "Material 002",
+				"Quality" : "200",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 2 01"
+					}, 
+					{
+					"EventID" : "2", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:20",
+					"Comment" : "Comment Item 2 02"
+					},
+					{
+					"EventID" : "3", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:30",
+					"Comment" : "Comment Item 2 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "3", 
+				"MaterialNo" : "00000003",
+				"MaterialDesc" : "Material 003",
+				"Quality" : "300",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1", 
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item  301"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 3 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 3 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "4", 
+				"MaterialNo" : "00000004",
+				"MaterialDesc" : "Material 004",
+				"Quality" : "400",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 4 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 4 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 4 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "5", 
+				"MaterialNo" : "00000005",
+				"MaterialDesc" : "Material 005",
+				"Quality" : "500",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 5 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 5 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 5 03"
+					}
+				]
+			}
+		]
+		},
+		{
+		"NomKey" : "00000002",
+		"VehicleNo" : "2", 
+ 		"VehicleName" : "Vessel 002",
+		"NomStatus" : "None", 
+		"NomItemCollection" : [
+			{
+				"NomKeyItem" : "1", 
+				"MaterialNo" : "00000001",
+				"MaterialDesc" : "Material 001",
+				"Quality" : "100",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 1 01"
+					},
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 1 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 1 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "2", 
+				"MaterialNo" : "00000002",
+				"MaterialDesc" : "Material 002",
+				"Quality" : "200",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 2 01"
+					},
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 2 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 2 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "3", 
+				"MaterialNo" : "00000003",
+				"MaterialDesc" : "Material 003",
+				"Quality" : "300",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item  301"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 3 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 3 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "4", 
+				"MaterialNo" : "00000004",
+				"MaterialDesc" : "Material 004",
+				"Quality" : "400",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 4 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 4 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 4 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "5", 
+				"MaterialNo" : "00000005",
+				"MaterialDesc" : "Material 005",
+				"Quality" : "500",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 5 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 5 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 5 03"
+					}
+				]
+			}
+		]
+		},
+		{
+		"NomKey" : "00000003",
+		"VehicleNo" : "3", 
+ 		"VehicleName" : "Vessel 003",
+		"NomStatus" : "None", 
+		"NomItemCollection" : [
+			{
+				"NomKeyItem" : "1", 
+				"MaterialNo" : "00000001",
+				"MaterialDesc" : "Material 001",
+				"Quality" : "100",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 1 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 1 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 1 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "2", 
+				"MaterialNo" : "00000002",
+				"MaterialDesc" : "Material 002",
+				"Quality" : "200",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 2 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 2 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 2 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "3", 
+				"MaterialNo" : "00000003",
+				"MaterialDesc" : "Material 003",
+				"Quality" : "300",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item  301"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 3 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 3 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "4", 
+				"MaterialNo" : "00000004",
+				"MaterialDesc" : "Material 004",
+				"Quality" : "400",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 4 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 4 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 4 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "5", 
+				"MaterialNo" : "00000005",
+				"MaterialDesc" : "Material 005",
+				"Quality" : "500",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 5 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 5 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 5 03"
+					}
+				]
+			}
+
+		]
+		},
+		{
+		"NomKey" : "00000004",
+		"VehicleNo" : "4", 
+ 		"VehicleName" : "Vessel 004",
+		"NomStatus" : "None", 
+		"NomItemCollection" : [
+			{
+				"NomKeyItem" : "1", 
+				"MaterialNo" : "00000001",
+				"MaterialDesc" : "Material 001",
+				"Quality" : "100",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+				]
+			},
+			{
+				"NomKeyItem" : "2", 
+				"MaterialNo" : "00000002",
+				"MaterialDesc" : "Material 002",
+				"Quality" : "200",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+				]
+			},
+			{
+				"NomKeyItem" : "3", 
+				"MaterialNo" : "00000003",
+				"MaterialDesc" : "Material 003",
+				"Quality" : "300",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+				]
+			},
+			{
+				"NomKeyItem" : "4", 
+				"MaterialNo" : "00000004",
+				"MaterialDesc" : "Material 004",
+				"Quality" : "400",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+				]
+			},
+			{
+				"NomKeyItem" : "5", 
+				"MaterialNo" : "00000005",
+				"MaterialDesc" : "Material 005",
+				"Quality" : "500",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+				]
+			}
+		]
+		},
+		{
+		"NomKey" : "00000005",
+		"VehicleNo" : "5", 
+ 		"VehicleName" : "Vessel 005",
+		"NomStatus" : "None", 
+		"NomItemCollection" : [
+			{
+				"NomKeyItem" : "1", 
+				"MaterialNo" : "00000001",
+				"MaterialDesc" : "Material 001",
+				"Quality" : "100",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 1 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 1 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 1 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "2", 
+				"MaterialNo" : "00000002",
+				"MaterialDesc" : "Material 002",
+				"Quality" : "200",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 2 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 2 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 2 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "3", 
+				"MaterialNo" : "00000003",
+				"MaterialDesc" : "Material 003",
+				"Quality" : "300",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item  301"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 3 02"
+					},
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 3 03"
+					} 
+				]
+			},
+			{
+				"NomKeyItem" : "4", 
+				"MaterialNo" : "00000004",
+				"MaterialDesc" : "Material 004",
+				"Quality" : "400",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 4 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 4 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 4 03"
+					}
+				]
+			},
+			{
+				"NomKeyItem" : "5", 
+				"MaterialNo" : "00000005",
+				"MaterialDesc" : "Material 005",
+				"Quality" : "500",
+			  	"Unit" : "Unit",
+				"ItemEventList" : [
+					{
+					"EventID" : "1",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "01:00",
+					"Comment" : "Comment Item 5 01"
+					}, 
+					{
+					"EventID" : "2",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "02:00",
+					"Comment" : "Comment Item 5 02"
+					}, 
+					{
+					"EventID" : "3",  
+					"EventDate" : "01/01/2001",
+					"EventTime" : "03:00",
+					"Comment" : "Comment Item 5 03"
+					}
+				]
+			}
+		]
+		}
+	], 
+	
+	"EventCollection" : [
+		{	
+			"EventID" : "1", 
+			"EventDesc" : "Event 001",
+			"EventSeq" : "1"
+		},
+		{	
+			"EventID" : "2", 
+			"EventDesc" : "Event 002",
+			"EventSeq" : "2"
+		},
+		{	
+			"EventID" : "3", 
+			"EventDesc" : "Event 003",
+			"EventSeq" : "3"
+		},
+		{	
+			"EventID" : "4", 
+			"EventDesc" : "Event 004",
+			"EventSeq" : "4"
+		},
+		{	
+			"EventID" : "5", 
+			"EventDesc" : "Event 005",
+			"EventSeq" : "5"
+		}
+	]
+}

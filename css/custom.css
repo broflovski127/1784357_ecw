@@ -1,0 +1,142 @@
+#App-Master { /* Master width */
+	width: 50%;
+}
+
+.CaptureButton ,.SelectAllButton{
+	margin: 5px;
+}
+
+.NomContainer .sapMPanelContent{
+	padding : 0px; 
+	border-bottom: 0px solid #000000;
+}
+
+.MainListItemContainer{
+	background-color: #65BAEB !important;
+	padding : 0px;
+}
+
+.SelectedItem, .SelectedItem:hover{
+	color : #000000 !important ; 
+	background-color: #C7C7C7 !important;
+}
+
+.sapMLIBSelectD:hover, .sap-desktop .sapMLIB:not(.sapMLIBActive):not(.sapMLIBTypeInactive):not(.sapMLIBTypeDetail):not(.sapMALI):hover, .sap-desktop .sapMListUl:not(.sapMListModeDelete):not(.sapMListModeNone) .sapMLIB:not(.sapMLIBActive):not(.sapMALI):hover, .sap-desktop .sapMLIB:not(.sapMLIBActive):not(.sapMLIBTypeInactive):not(.sapMLIBTypeDetail):not(.sapMALI):hover>td, .sap-desktop .sapMLIB:not(.sapMLIBActive):not(.sapMLIBTypeInactive):not(.sapMLIBTypeDetail):not(.sapMALI):hover + .sapMListTblSubRow, .sap-desktop .sapMListTblSubRow:not(.sapMLIBActive):not(.sapMLIBTypeInactive):not(.sapMLIBTypeDetail):not(.sapMALI):hover {
+    color : #000000 !important ; 
+	background-color: #C7C7C7 !important;
+}
+
+.ItemTable {
+	margin: 1% 5%;
+}
+
+.MainListItem{
+	boarder : 0px !important;
+}
+
+/*.ExpandItemList {
+	
+}
+
+.MainListItemContainer{
+	background-color: #3299BB !important;
+	margin : 0px; 
+	padding : 0px; 
+}
+
+.SelectedMainListItem, .ExpandItemList{
+	//transition: all 1s ease;
+	background-color: #3299BB !important;
+	color : #FFFFFF !important ;
+}
+
+.MainListItem:not(.InProgressItem, .SelectedMainListItem){
+	background-color: #BCBCBC !important;
+	border-bottom: 0px;
+}
+
+.InProgressItem:not(.SelectedMainListItem) {
+	color: #87BCE5 !important;
+	background-color : #FF9900 !important; 
+	border-bottom: 0px;
+}
+
+
+.hidden {
+	
+}*/
+
+/*#MainShell-hdrTxt {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #87BCE5;
+}*/
+.EmptyPage {
+	background-color: #FFFFFF;
+}
+
+.sapMDLILabel {
+	font-weight: bold;
+}
+
+.sapMDLIValue {
+	font-size: 1.125rem;
+}
+
+.Horizontal ul
+{
+list-style-type: none;
+}
+
+.Horizontal ul li { 
+	float:left;
+	display: inline; 
+	margin : 0px 5px 0px 0px; 
+}
+
+.EventItemBox1{ 
+	color : #FFFFFF !important;
+	background-color: #424242;
+    border-style: solid;
+    border-width: 1px;
+    padding : 2px 5px 2px 5px; 
+    border-radius: 15px;
+    font-size : 0.8em  !important;
+}
+
+.EventItemBox2{ 
+	color : #FFFFFF !important;
+	background-color: #424242;
+    border-style: solid;
+    border-width: 1px;
+    padding : 2px 6px 2px 6px; 
+    border-radius: 15px;
+    font-size : 0.7em  !important;
+}
+
+.Horizontal LI{
+	border-width: 0px;
+	border-bottom: 0px;
+}
+
+.MainNomList{
+	background-color: #E8E8EE;
+}
+
+.sapMBarPH, .sapMBar-CTX .sapMLabel{
+	color : #E9E9E9;
+	background-color: #424242;
+}
+
+.sapMLIBContent sapMLIBContentMargin{
+	margin : 0px; 
+	padding : 0px; 
+}
+
+.ItemList{
+	margin : 10px; 
+}
+

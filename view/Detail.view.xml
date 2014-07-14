@@ -1,0 +1,29 @@
+<core:View controllerName="sap.ui.demo.myFiori.view.Detail"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Page title="Event List" showNavButton="false"
+		navButtonPress="handleNavButtonPress">
+		<List items="{ path : '/EventCollection', sorter : { path : 'EventSeq', descending: false} }" updateFinished="afterBinding">
+			<CustomListItem class="ItemList" label="{EventID}" value="{EventDesc}"
+				width="100%" type="Active" height="3em">
+				<Panel class="ListPanel" type="Active">
+					<VBox height="2.5em">
+						<items>
+							<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+								<Label text="{EventDesc}" class="content" />
+								<Label text="{EventDate}" class="content" />
+							</FlexBox>
+							<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+								<List class="Horizontal" items="{eventItems}">
+								<CustomListItem>
+									<Text class="EventItemBox2" text="{itemIndex}" />
+								</CustomListItem>
+								</List>
+								<Label text="{EventTime}" class="content" />
+							</FlexBox>
+						</items>
+					</VBox>
+				</Panel>
+			</CustomListItem>
+		</List>
+	</Page>
+</core:View>

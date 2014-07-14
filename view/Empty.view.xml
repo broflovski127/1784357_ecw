@@ -1,0 +1,6 @@
+<core:View
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" >
+	<Page showHeader="true" class="EmptyPage">
+	</Page>
+</core:View>
