@@ -1,16 +1,12 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.require("sap.em.somit.ecw.util.Formatter");
 
-sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
+sap.ui.controller("sap.em.somit.ecw.view.Detail", {
 	
 	onInit : function() {
-		var oModel = this.getView().getModel();  
-	},
-
-	handleNavButtonPress : function (evt) {
-		this.nav.back("Master");
 	}, 
 	
-	afterBinding: function() {
-	    $(".Horizontal:not(:has(.EventItemBox2))").hide(); 
+	onAfterBinding: function() {
+		/* Hide empty item list */
+	    $(".HorizontalList:not(:has(.DetailItemBox))").hide(); 
 	},
 });

@@ -1,154 +1,94 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.require("sap.em.somit.ecw.util.Formatter");
+jQuery.sap.require("sap.em.somit.ecw.util.Selector");
 
-var itemSelected = false; 
-var itemIndexMap = {}; 
-
-sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
+sap.ui.controller("sap.em.somit.ecw.view.Master", {
 	
 	onInit : function() {
-		_itemIndexMap = new Object(); 
+		this._itemIndexMap = {}; //Nomination Item - Index Map 
 	}, 
 	
-	afterBinding: function() {
-	    $(".hidden, .MainListItemStatus").hide(); 
-	    
-	    /* Sort List */
-	    /*function sortAlpha(a,b){
-	        return a.id < b.id ? 1 : -1;
-	    };
-	    $('.MasterList .MainListItem').sort(sortAlpha).appendTo('.MasterList');*/
-	    
-	    /* Main List Item */
-	    /*$(".MainListItem").each( function(){
-	    	oMainListItem = sap.ui.getCore().byId( $(this).attr('id') );
-	    	var context = oMainListItem.getBindingContext();
-			var oModel = context.getModel();  
-			var itemList = oModel.getProperty("NomItemCollection", context);  
-			
-			var listLength = itemList.length;
-			for (var i = 0; i < listLength; i++) {
-			    if( itemList[i].ItemEventList.length > 0 )
-			    	oMainListItem.addStyleClass("InProgressItem"); 
-			}
-	    });*/ 
+	onAfterRendering : function() {
+	}, 
+	
+	onAfterBinding: function() {
+		
+		$(".Hidden").hide();
 
 	    /* Assign index to item */
-	    $(".ItemTable").each( function(){
+		this._itemIndexMap = {}; 
+		var itemIndexMap = this._itemIndexMap; 
+	    $(".NominationItemTable").each( function(){
 	    	$(this).find(".ItemIndex").each( function(i) {
-	    		var oText = sap.ui.getCore().byId( $(this).attr('id') ); 
-	    		oText.setText( i + 1 ); 
-	    		var key = $(this).closest("tr").find(".Key").text(); 
-	    		itemIndexMap[ key  ] = i + 1; 
+	    		var oIndexText = sap.ui.getCore().byId( $(this).attr('id') ); 
+	    		if( oIndexText )
+	    			oIndexText.setText( i + 1 ); 
+	    		
+	    		var itemKey = $(this).closest("tr").find(".Key").text(); 
+	    		itemIndexMap[ itemKey ] = i + 1; 
 	    	});
 	    });
 	    
 	},
 
-	handleListItemPress : function (evt) {
-		this.nav.to("Empty");
-		var context = evt.getSource().getBindingContext();
-		var oModel = context.getModel();  
-        var mainPos = oModel.getProperty("NomKey", context);                    //  
-        var data = oModel.getData(); 
-        var result = $.grep(data, function(e){ return e.NomStatus == "None"; });
+	handleNominationPress : function (evt) {
+		
+		var sourceId = "#" + evt.getSource().getId(); 
+		this.nav.to("Empty"); 
         
-        $(".SelectedItem").removeClass("SelectedItem"); 
-        var oButton = sap.ui.getCore().byId($("#" + evt.getSource().getId()).closest(".NomContainer").
-				find(".CaptureButton").attr('id'));
-	    oButton.setEnabled( false ); 
-		
-		$(".hidden:visible").slideToggle(); 
+        $(".SelectedItem").removeClass("SelectedItem"); //Clear selected item
+        $(".Hidden:visible").slideToggle(); //Hide visible expanded item
+        this.setCaptureButtonEnable( sourceId, false ); 
 
-		/*if( itemSelected==true ){
-			itemSelected = false; 
-			return; 
-		}*/
-		/*var oModel = new sap.ui.model.json.JSONModel("model/item.json");
-		var tableId = $("#" + evt.getSource().getId()).closest(".NomContainer").find(".ItemTable").attr('id'); 
-		var oTable = sap.ui.getCore().byId( tableId ); 
-		oTable.setModel( oModel ); 
-		oTable.bindItems("/NomItemList",
-				new sap.m.ColumnListItem({
-					press : "handleItemPress",
-					type : "Active",
-			        cells : [ new sap.m.Text({
-			          text : "{Id}"
-			        }), new sap.m.Text({
-			          text : "{Name}"
-			        })]
-			      })
-		);*/
-		
-		//var context = evt.getSource().getBindingContext();
-		//this.nav.to("Detail", context);
-		
-		/*var item = evt.getSource(); 
-		var myButton = new sap.m.Button("btn");
-		myButton.setText("Hello World!");
-
-		item.addContent(
-	      myButton
-		); */
-		
-		//$(".hidden").slideToggle();
-		//alert("#" + evt.getSource().getId());
-		
-		
-		
-		if( $("#" + evt.getSource().getId()).closest(".NomContainer").find(".hidden").is(":visible") )
-			return; 
-		
-		$("#" + evt.getSource().getId()).closest(".NomContainer").find(".hidden").slideToggle(); 
-		if( $("#" + evt.getSource().getId()).find(".hidden").is(":visible") ){
-			$("#" + evt.getSource().getId()).closest(".MainListItem").addClass("SelectedMainListItem"); 
+		$(sourceId).closest(".MasterListItemBox").find(".Hidden").slideToggle(); 
+		if( $(sourceId).find(".Hidden").is(":visible") ){
+			$(sourceId).closest(".MasterListItemBox").addClass("SelectedMainListItem"); 
 		}else {
-			$("#" + evt.getSource().getId()).closest(".MainListItem").removeClass("SelectedMainListItem"); 
+			$(sourceId).closest(".MasterListItemBox").removeClass("SelectedMainListItem"); 
 		}
 	},
 	
-	handleItemPress: function (evt) { 
+	handleNominationItemPress: function (evt) { 
+		var sourceId = "#" + evt.getSource().getId(); 
 		
-		$("#" + evt.getSource().getId()).toggleClass('SelectedItem'); 
-		
-		var oButton = sap.ui.getCore().byId($("#" + evt.getSource().getId()).closest(".ExpandItemList").
-				find(".CaptureButton").attr('id'));
-		if( $("#" + evt.getSource().getId()).closest(".ExpandItemList").find(".SelectedItem").length > 0 ){
-			oButton.setEnabled( true ); 
+		$(sourceId).toggleClass('SelectedItem'); 
+
+		if( $(sourceId).closest(".ExpandedNominationItemList").find(".SelectedItem").length > 0 ){
+			this.setCaptureButtonEnable( sourceId, true );
 		}else {
-			oButton.setEnabled( false ); 
-		}
-			
+			this.setCaptureButtonEnable( sourceId, false );
+		}	
 	},
 	
-	handleSelectAll: function (evt) { 
-		$("#" + evt.getSource().getId()).closest(".ExpandItemList").find(".NomItem").addClass("SelectedItem"); 
+	handleSelectAllButton: function (evt) { 
+		var sourceId = "#" + evt.getSource().getId(); 
 		
-		var oButton = sap.ui.getCore().byId($("#" + evt.getSource().getId()).closest(".ExpandItemList").
-				find(".CaptureButton").attr('id'));
-		oButton.setEnabled( true ); 
+		$(sourceId).closest(".ExpandedNominationItemList").find(".NomItem").addClass("SelectedItem"); 
+		this.setCaptureButtonEnable( sourceId, true );
 	},
 	
-	handleCapturePress : function (evt) { 
+	handleCapturePressButton : function (evt) { 
+		var sourceId = "#" + evt.getSource().getId(); 
 		
 		this.nav.to("Empty");
 		
-		var oButton = sap.ui.getCore().byId($("#" + evt.getSource().getId()).closest(".ExpandItemList").
-				find(".CaptureButton").attr('id'));
-		if( oButton.getText()=="Capture"){
-			oButton.setText("Done"); 
-		}else{
-			oButton.setText("Capture"); 
-			oButton.setEnabled( false ); 
-			$("#" + evt.getSource().getId()).closest(".ExpandItemList").find(".SelectedItem").removeClass("SelectedItem");
-			return; 
+		var oCaptureButton = this.getCaptureButton( sourceId );
+		if( oCaptureButton ){
+			if( oCaptureButton.getText()=="Capture"){
+				oCaptureButton.setText("Done"); 
+			}else{
+				oCaptureButton.setText("Capture"); 
+				oCaptureButton.setEnabled( false ); 
+				$(sourceId).closest(".ExpandedNominationItemList").find(".SelectedItem").removeClass("SelectedItem");
+				return; 
+			}
 		}
 		
-		var selectedItemKeyList = new Array(); 
 		/* Collect Selected Item */
-		$("#" + evt.getSource().getId()).closest(".ExpandItemList").find(".SelectedItem").each(
-				function(){
-					selectedItemKeyList.push( $(this).find(".Key").text() ); 
-				}); 
+		var selectedItemKeyList = new Array(); 
+		$(sourceId).closest(".ExpandedNominationItemList").find(".SelectedItem").each(
+			function(){
+				selectedItemKeyList.push( $(this).find(".Key").text() ); 
+		}); 
 		
 		/* TODO : Create Event List Model, Pass to Detail View */
 		var context = evt.getSource().getBindingContext();
@@ -178,7 +118,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 			for (var j = 0; j < eventListLength; j++) { /* Item - Event iteration */
 				
 				var isInserted = false; 
-			    var item = { itemIndex  : itemIndexMap[selectedItemList[i].MaterialNo],  
+			    var item = { ItemIndex  : this._itemIndexMap[selectedItemList[i].MaterialNo],  
 			    		     materialNo : selectedItemList[i].MaterialNo };
 			    var eventDesc = "NONE"; 
 			    var eventSeq = "0"; 
@@ -191,15 +131,15 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 					 /* Insert item to the empty event, or the one that has the same timestamp */
 					 eventDesc = this.EventDesc; 
 					 eventSeq = this.EventSeq; 
-					 if(typeof this.eventItems === 'undefined'){
+					 if(typeof this.EventItems === 'undefined'){
 						 this.EventDate = selectedItemList[i].ItemEventList[j].EventDate; 
 						 this.EventTime = selectedItemList[i].ItemEventList[j].EventTime; 
-						 this.eventItems = [];  
-						 this.eventItems.push( item ); 
+						 this.EventItems = [];  
+						 this.EventItems.push( item ); 
 						 isInserted = true; 
 					 }else if(this.EventDate === selectedItemList[i].ItemEventList[j].EventDate &&
 							  this.EventTime === selectedItemList[i].ItemEventList[j].EventTime ){
-						 this.eventItems.push( item );
+						 this.EventItems.push( item );
 						 isInserted = true; 
 					 }
 
@@ -213,8 +153,8 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 					newEvent.EventSeq = eventSeq;
 					newEvent.EventDate = selectedItemList[i].ItemEventList[j].EventDate;
 					newEvent.EventTime = selectedItemList[i].ItemEventList[j].EventTime; 
-					newEvent.eventItems = []; 
-					newEvent.eventItems.push( item );
+					newEvent.EventItems = []; 
+					newEvent.EventItems.push( item );
 					eventList.push( newEvent ); 
 				}
 			}
@@ -229,6 +169,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 			}
 			
 			var eventListLength = allItemList[i].ItemEventList.length;
+			var itemIndexMap = this._itemIndexMap;
 			for (var j = 0; j < eventListLength; j++) { /* Item - Event iteration */
 				
 				$(eventList).each( function() {
@@ -238,9 +179,9 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 						 return; 
 					 }
 					 
-					 var item = { itemIndex  : itemIndexMap[allItemList[i].MaterialNo],  
+					 var item = { ItemIndex  : itemIndexMap[allItemList[i].MaterialNo],  
 			    		          materialNo : allItemList[i].MaterialNo };
-					 this.eventItems.push( item );
+					 this.EventItems.push( item );
 					 isInserted = true; 
 				});
 			}
@@ -272,5 +213,25 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		var list = this.getView().byId("list");
 		var binding = list.getBinding("items");
 		binding.filter(filters);
-	}
+	}, 
+	
+	/* UTILITY FUNCTION */
+	getCaptureButton : function( siblingId ) {
+		return sap.em.somit.ecw.util.Selector.
+			getSiblingComponentFromSource(siblingId,".MasterListItemBox",".CaptureButton");
+	}, 
+	
+	setCaptureButtonEnable : function ( siblingId, bEnable ) {
+		var oCaptureButton = this.getCaptureButton(siblingId);
+	
+	if( oCaptureButton )
+		oCaptureButton.setEnabled( bEnable ); 
+	}, 
+	
+	setCaptureButtonText : function ( siblingId, sText ) {
+		var oCaptureButton = this.getCaptureButton(siblingId);
+	
+	if( oCaptureButton )
+		oCaptureButton.setText( sText ); 
+	}, 
 });

@@ -4,7 +4,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta charset="UTF-8">
 
-		<title>Event Capture Test</title>
+		<title>Mobile Event Capture</title>
 
 		<script
 			id="sap-ui-bootstrap"
@@ -13,26 +13,21 @@
 			data-sap-ui-libs="sap.m"
 			data-sap-ui-xx-bindingSyntax="complex"
 			data-sap-ui-resourceroots='{
-				"sap.ui.demo.myFiori": "./"
+				"sap.em.somit.ecw": "./"
 			}' >
 		</script>
-
+		
 		<script>
 			new sap.m.Shell("MainShell", {
 				app : new sap.ui.core.ComponentContainer({
-					name : "sap.ui.demo.myFiori"
+					name : "sap.em.somit.ecw"
 				}),
 				title : "Mobile Event Capture"
 			}).placeAt("content");
 			
-			$(document).ready(function() {
-				$(".hidden").hide();  
-			});
 		</script>
 		<link rel="stylesheet" type="text/css" href="css/custom.css" />
-
 	</head>
 	<body class="sapUiBody" id="content">
-	<script>document.body.style.overflow = 'hidden';</script>
 	</body>
 </html>

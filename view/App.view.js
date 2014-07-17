@@ -1,26 +1,22 @@
-sap.ui.jsview("sap.ui.demo.myFiori.view.App", {
+sap.ui.jsview("sap.em.somit.ecw.view.App", {
 
 	getControllerName: function () {
-		return "sap.ui.demo.myFiori.view.App";
+		return "sap.em.somit.ecw.view.App";
 	},
 	
 	createContent: function (oController) {
 		
-		// to avoid scroll bars on desktop the root view must be set to block display
+		//hide scroll bar on Desktop 
 		this.setDisplayBlock(true);
 		
-		// create app
 		this.app = new sap.m.SplitApp("App");
-
-		// load the master page
-		var master = sap.ui.xmlview("Master", "sap.ui.demo.myFiori.view.Master");
-		//var master = sap.ui.jsview("MasterList", "sap.ui.demo.myFiori.view.MasterList");
-		master.getController().nav = this.getController();
-		this.app.addPage(master, true);
 		
-		// load the empty page
-		var empty = sap.ui.xmlview("Empty", "sap.ui.demo.myFiori.view.Empty");
-		this.app.addPage(empty, false);
+		var masterView = sap.ui.xmlview("Master", "sap.em.somit.ecw.view.Master");
+		masterView.getController().nav = this.getController();
+		this.app.addPage(masterView, true);
+		
+		var emptyView = sap.ui.xmlview("Empty", "sap.em.somit.ecw.view.Empty");
+		this.app.addPage(emptyView, false);
 
 		return this.app;
 	}
