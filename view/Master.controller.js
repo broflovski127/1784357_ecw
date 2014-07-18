@@ -38,6 +38,9 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
         $(".SelectedItem").removeClass("SelectedItem"); //Clear selected item
         $(".Hidden:visible").slideToggle(); //Hide visible expanded item
         this.setCaptureButtonEnable( sourceId, false ); 
+        
+        if( $(sourceId).closest(".MasterListItemBox").find(".Hidden").is(':visible') )
+        	return; 
 
 		$(sourceId).closest(".MasterListItemBox").find(".Hidden").slideToggle(); 
 		if( $(sourceId).find(".Hidden").is(":visible") ){
@@ -54,6 +57,7 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 
 		if( $(sourceId).closest(".ExpandedNominationItemList").find(".SelectedItem").length > 0 ){
 			this.setCaptureButtonEnable( sourceId, true );
+			this.setCaptureButtonText( sourceId, "Capture" );
 		}else {
 			this.setCaptureButtonEnable( sourceId, false );
 		}	
@@ -68,7 +72,6 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 	
 	handleCapturePressButton : function (evt) { 
 		var sourceId = "#" + evt.getSource().getId(); 
-		
 		this.nav.to("Empty");
 		
 		var oCaptureButton = this.getCaptureButton( sourceId );
@@ -83,32 +86,24 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 			}
 		}
 		
-		/* Collect Selected Item */
-		var selectedItemKeyList = new Array(); 
+		/* Collect selected item key - Material No. */
+		var selectedItemKeyList = []; 
 		$(sourceId).closest(".ExpandedNominationItemList").find(".SelectedItem").each(
 			function(){
 				selectedItemKeyList.push( $(this).find(".Key").text() ); 
 		}); 
 		
-		/* TODO : Create Event List Model, Pass to Detail View */
 		var context = evt.getSource().getBindingContext();
 		var oModel = context.getModel();  
 		var allItemList = oModel.getProperty(context.getPath()).NomItemCollection;
-		
-		var eventList = {}; 
-		eventList = JSON.parse(JSON.stringify(oModel.getData().EventCollection));
-		//eventList = jQuery.extend(true, {}, oModel.getData().EventCollection);
-        //var eventList = oModel.getData().EventCollection; 
+		var eventList = JSON.parse(JSON.stringify(oModel.getData().EventCollection));
+			
+		/* Collect selected item regarding key */
         var selectedItemList = $.grep(allItemList, function( item, i ){ 
         	  return $.grep(selectedItemKeyList, function( itemKey, index ){ 
             	  return itemKey == item.MaterialNo; 
           	}).length > 0;
-        	});
-        var unselectedItemList = $.grep(allItemList, function( item, i ){ 
-      	  return $.grep(selectedItemKeyList, function( itemKey, index ){ 
-          	  return itemKey != item.MaterialNo; 
-        	}).length > 0;
-      	});
+        });
         
         /* Add selected item in to Event List */
 		var selectedItemListLength = selectedItemList.length;
@@ -117,12 +112,13 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 			var eventListLength = selectedItemList[i].ItemEventList.length;
 			for (var j = 0; j < eventListLength; j++) { /* Item - Event iteration */
 				
-				var isInserted = false; 
+				var bInserted = false; 
 			    var item = { ItemIndex  : this._itemIndexMap[selectedItemList[i].MaterialNo],  
 			    		     materialNo : selectedItemList[i].MaterialNo };
 			    var eventDesc = "NONE"; 
-			    var eventSeq = "0"; 
+			    var eventSeq = 0; 
 				 
+			    /* Add item in to corresponding event */
 				$(eventList).each( function() {
 					 if (this.EventID != selectedItemList[i].ItemEventList[j].EventID ){
 						 return; 
@@ -136,20 +132,19 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 						 this.EventTime = selectedItemList[i].ItemEventList[j].EventTime; 
 						 this.EventItems = [];  
 						 this.EventItems.push( item ); 
-						 isInserted = true; 
+						 bInserted = true; 
 					 }else if(this.EventDate === selectedItemList[i].ItemEventList[j].EventDate &&
 							  this.EventTime === selectedItemList[i].ItemEventList[j].EventTime ){
 						 this.EventItems.push( item );
-						 isInserted = true; 
+						 bInserted = true; 
 					 }
-
 				});
 				
 				/* Insert item to the new Event in case of new timestamp */
-				if( isInserted===false ){
-					var newEvent = {}; //JSON.parse(JSON.stringify(this));; 
+				if( bInserted===false ){
+					var newEvent = {}; 
 					newEvent.EventDesc = eventDesc; 
-					newEvent.EventId = selectedItemList[i].ItemEventList[j].EventID;
+					newEvent.EventID = selectedItemList[i].ItemEventList[j].EventID;
 					newEvent.EventSeq = eventSeq;
 					newEvent.EventDate = selectedItemList[i].ItemEventList[j].EventDate;
 					newEvent.EventTime = selectedItemList[i].ItemEventList[j].EventTime; 
@@ -160,10 +155,11 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 			}
 		}
 		
-		/* Add unselected item on the same event with the same timestamp */
+		/* Add unselected item on the same event with the same timestamp as selected item */
 		var allItemListLength = allItemList.length;
 		for (var i = 0; i < allItemListLength; i++) { /* Item iteration */
 			
+			/* Skip selected item */
 			if( selectedItemKeyList.indexOf(allItemList[i].MaterialNo) > -1 ){
 				continue; 
 			}
@@ -182,17 +178,16 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 					 var item = { ItemIndex  : itemIndexMap[allItemList[i].MaterialNo],  
 			    		          materialNo : allItemList[i].MaterialNo };
 					 this.EventItems.push( item );
-					 isInserted = true; 
+					 bInserted = true; 
 				});
 			}
 		}
 		
 		var eventListData = {
-				EventCollection : []
+			EventCollection : []
 		}; 
 		
 		eventListData.EventCollection = eventList; 
-		//var eventListJSON = JSON.stringify(eventListData);
 		
 		var oModel = new sap.ui.model.json.JSONModel();
 		oModel.setData(eventListData);
@@ -203,16 +198,18 @@ sap.ui.controller("sap.em.somit.ecw.view.Master", {
 		
 		// create model filter
 		var filters = [];
-		var query = evt.getParameter("query");
-		if (query && query.length > 0) {
-			var filter = new sap.ui.model.Filter("SoId", sap.ui.model.FilterOperator.Contains, query);
-			filters.push(filter);
+		var oQuery = evt.getParameter("query");
+		if (oQuery && oQuery.length > 0) {
+			var oNomFilter = new sap.ui.model.Filter("NomKey", sap.ui.model.FilterOperator.Contains, oQuery);
+			filters.push(oNomFilter);
+			var oVesselFilter = new sap.ui.model.Filter("VehicleName", sap.ui.model.FilterOperator.Contains, oQuery);
+			filters.push(oVesselFilter);
 		}
 		
 		// update list binding
-		var list = this.getView().byId("list");
-		var binding = list.getBinding("items");
-		binding.filter(filters);
+		var oList = this.getView().byId("MasterList");
+		var oBinding = oList.getBinding("items");
+		oBinding.filter(filters);
 	}, 
 	
 	/* UTILITY FUNCTION */

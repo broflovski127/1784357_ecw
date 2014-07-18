@@ -11,7 +11,7 @@
 			</Bar>
 		</subHeader>
 
-		<List class="MasterList" items="{/NominationCollection}" updateFinished="onAfterBinding">
+		<List id="MasterList" class="MasterList" items="{/NominationCollection}" updateFinished="onAfterBinding">
 			<CustomListItem>
 					<VBox class="MasterListItemBox">
 						<items>
@@ -24,7 +24,7 @@
 													width="100%" height="100%" />
 							</List>
 							<VBox class="Hidden ExpandedNominationItemList">
-								<Table class="NominationItemTable" width="90%" items="{NomItemCollection}">
+								<Table class="NominationItemTable" width="450px" items="{NomItemCollection}">
 									<columns>
 										<Column width="10%">
 										</Column>
