@@ -40,7 +40,7 @@
 									<items>
 										<ColumnListItem type="Active" class="NomItem" press="handleNominationItemPress" >
 											<cells>
-											    <Text class="ItemIndex EventItemBox1" text="N/A" />
+											    <Text class="ItemIndex MasterItemIndexBox" text="N/A" />
 												<Text class="Key" text="{MaterialNo}" />
 												<Text text="{MaterialDesc}" />
 												<Text text="{Quality} {Unit}" />

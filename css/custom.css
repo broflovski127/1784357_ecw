@@ -34,46 +34,6 @@
 	boarder : 0px !important;
 }
 
-/*.ExpandedNominationItemList {
-	
-}
-
-.MasterListItemSimpleList{
-	background-color: #3299BB !important;
-	margin : 0px; 
-	padding : 0px; 
-}
-
-.SelectedMainListItem, .ExpandedNominationItemList{
-	//transition: all 1s ease;
-	background-color: #3299BB !important;
-	color : #FFFFFF !important ;
-}
-
-.MasterListItemBox:not(.InProgressItem, .SelectedMainListItem){
-	background-color: #BCBCBC !important;
-	border-bottom: 0px;
-}
-
-.InProgressItem:not(.SelectedMainListItem) {
-	color: #87BCE5 !important;
-	background-color : #FF9900 !important; 
-	border-bottom: 0px;
-}
-
-
-.Hidden {
-	
-}*/
-
-/*#MainShell-hdrTxt {
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #87BCE5;
-}*/
 .EmptyPage {
 	background-color: #FFFFFF;
 }
@@ -88,7 +48,7 @@
 
 .HorizontalList ul
 {
-list-style-type: none;
+	list-style-type: none;
 }
 
 .HorizontalList ul li { 
@@ -97,7 +57,7 @@ list-style-type: none;
 	margin : 0px 5px 0px 0px; 
 }
 
-.EventItemBox1{ 
+.MasterItemIndexBox{ 
 	color : #FFFFFF !important;
 	background-color: #424242;
     border-style: solid;
@@ -107,7 +67,7 @@ list-style-type: none;
     font-size : 0.8em  !important;
 }
 
-.DetailItemBox{ 
+.DetailItemIndexBox{ 
 	color : #FFFFFF !important;
 	background-color: #424242;
     border-style: solid;

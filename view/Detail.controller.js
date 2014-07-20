@@ -7,6 +7,6 @@ sap.ui.controller("sap.em.somit.ecw.view.Detail", {
 	
 	onAfterBinding: function() {
 		/* Hide empty item list */
-	    $(".HorizontalList:not(:has(.DetailItemBox))").hide(); 
+	    $(".HorizontalList:not(:has(.DetailItemIndexBox))").hide(); 
 	},
 });

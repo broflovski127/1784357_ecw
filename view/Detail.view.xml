@@ -14,7 +14,7 @@
 							<FlexBox alignItems="Start" justifyContent="SpaceBetween">
 								<List class="HorizontalList" items="{ path : 'EventItems', sorter : { path : 'ItemIndex', descending: false} }">
 								<CustomListItem>
-									<Text class="DetailItemBox" text="{ItemIndex}" />
+									<Text class="DetailItemIndexBox" text="{ItemIndex}" />
 								</CustomListItem>
 								</List>
 								<Label text="{EventTime}" />
